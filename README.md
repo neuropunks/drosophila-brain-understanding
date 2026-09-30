@@ -103,6 +103,11 @@ data (F3). The English version is being prepared for publication.*
 
 ---
 
+**Project channel:** «Правила игры» (Law of the Game) — Telegram: https://t.me/law_of_the_game — project notes, releases and popular-science writeups of this series.
+
+
+---
+
 # Understanding the Drosophila brain. Chapter L0 — Substrate (data and engine) and Chapter L1 — Physiology
 
 **Project:** "Fly" (~/Рабочий стол/Муха/). **Date of compilation:** 29.09.2026.
