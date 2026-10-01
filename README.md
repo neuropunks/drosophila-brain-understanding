@@ -6,8 +6,7 @@
 Автор: **Andrey A. Smarygin** (Independent researcher, Tyumen, Russia) ·
 Канал проекта: [t.me/law_of_the_game](https://t.me/law_of_the_game)
 
-**Сначала идёт русская версия (основная). English version follows below
-(scroll down / «English version»).**
+**Сначала идёт русская версия (основная). English version follows below.**
 
 ---
 # Понимание мозга дрозофилы: системный отчёт проекта «Муха»
@@ -1204,6 +1203,30 @@ phi   — фаза суток     гейт eta_eff = eta·(0.1+0.9·clamp(NPF))�
 *Все числа взяты из перечисленных отчётов/DEVLOG; новые «факты» не вводились. Пометки [VERIFY] разрешены по первичке 29.09.2026: SPEC-агрегаты разведены по протоколам (`learning-stage-report.md` 1.50/8 seed vs `e9d_recalibration.md` §5 1.73/6 seed vs пересчёт 0.90–0.96); числа DAN уточнены (PAM 316/15 типов, PPL 11 типов).*
 
 
+### F2. Почему v783 не учится: механизм коннектом-специфичности (01.10.2026)
+
+Разведка (3 ветки) + верификация chain32/33 (предрегистрация `f2_prereg.md`, результаты `f2_results.md`).
+
+| Тест | MaleCNS | FlyWire v783 |
+|---|---|---|
+| KC-код реальной пары (DM1/VA1v) | J ≈ 0.25 | **J = 0.76** |
+| **Excitability-null** (случайные ORN-пулы, 8 seeds) | **J = 0.53 ± 0.06** | **J = 0.896 ± 0.02** |
+| Структурная сепарабельность (ff-модель) | J ≈ 0.00 | J ≈ 0.02 |
+| KC→MBON рёбра (субстрат) | 61,210 | 62,261 ✅ |
+| Запись (changed при обучении) | 219–486 | 1,959–2,207 ✅ |
+| APL-свип J (3.5→8.0) | — | 0.770→0.711→0.455 (не лечит) |
+| Matched-drive пара (Δ4%) | — | ratioM < 1 (не лечит) |
+
+**Вердикт.** Общая KC-мода (аттрактор-доминируемый ансамбль) есть в обеих
+сетях; глубина решает всё. На MaleCNS мода накрывает J≈0.53 случайных пулов —
+реальные коды из неё выходят (0.25) → есть носитель. На v783 — J≈0.90, реальные
+коды НЕ выходят → депрессия A снимает 96% драйва B, специфичности нет.
+**Корень на v783 — динамика** (слабый ORN→PN драйв ×0.46/×0.15, KC-модуль
+×0.39, APL/драйв 0.27 vs 0.45 → мало WTA-разрежения), не проводка
+(структурный J≈0), не субстрат, не выбор пары. Тем же объясняются негативы
+community на FlyWire-графах.
+
+
 ---
 
 # Понимание мозга дрозофилы. Глава L6 — Поведение: от спайков к действию, и Глава «Методология исследования»
@@ -1577,7 +1600,7 @@ FULL PASS на v783: 01 stability, 02 sugar, 03 bitter, 04 looming, 05 taste, 09
 | # | Фронтир | Суть | Путь |
 |---|---|---|---|
 | **F1** | Структура → функция | По коннектому НЕ предсказать обучаемость пары (r=−0.136) — нет предсказательной теории топология→динамика | Поиск предикторов на накопленном корпусе прогонов |
-| **F2** | Кросс-коннектомная переносимость | Почему MaleCNS учится, v783 — нет: механистического ответа нет | Сравнительный анализ (SFA-типы, KC-разрежённость, аттракторный ландшафт) |
+| **F2** | ~~Кросс-коннектомная переносимость~~ | ✅ **ЗАКРЫТ 01.10**: общая KC-мода 0.53 vs 0.90 (excitability-null); корень — слабый драйв+APL на v783 | `f2_results.md` |
 | **F3** | Границы данных | Gap-атлас предиктивен, не валидирован; пептиды без bodyId-привязки; нет тела | Внешние данные (completeness-plan.md) |
 
 Это не бэклог — это следующий уровень: переход от феноменологии
@@ -2803,6 +2826,32 @@ Mechanics: per-segment `A_g` (mean Hz of the group) → `bias[j] = Σ_g κ_g·M[
 **Two cross-cutting boundaries unite the chapters:** (1) the **release block** — the learned delta is not released into MBON spikes (intrinsic homeostasis); (2) the **operation on the overlap** — KC→MBON depression does not encode directionality, so neither composition (L4) nor state specificity (L5) arises from addressing. The working output in both cases is the **PSP channel**.
 
 *All numbers are taken from the listed reports/DEVLOG; no new "facts" were introduced. The [VERIFY] markers were resolved against the primary source on 29.09.2026: the SPEC aggregates were separated by protocol (`learning-stage-report.md` 1.50/8 seeds vs `e9d_recalibration.md` §5 1.73/6 seeds vs the recomputation 0.90–0.96); the DAN numbers were refined (PAM 316/15 types, PPL 11 types).*
+
+
+### F2. Why v783 does not learn: the mechanism of connectome specificity (2026-10-01)
+
+Reconnaissance (3 branches) + verification chains 32/33 (pre-registration `f2_prereg.md`, results `f2_results.md`).
+
+| Test | MaleCNS | FlyWire v783 |
+|---|---|---|
+| KC code, real pair (DM1/VA1v) | J ≈ 0.25 | **J = 0.76** |
+| **Excitability null** (random ORN pools, 8 seeds) | **J = 0.53 ± 0.06** | **J = 0.896 ± 0.02** |
+| Structural separability (feed-forward model) | J ≈ 0.00 | J ≈ 0.02 |
+| KC→MBON edges (substrate) | 61,210 | 62,261 ✅ |
+| Writing (edges changed by training) | 219–486 | 1,959–2,207 ✅ |
+| APL sweep, J (3.5→8.0) | — | 0.770→0.711→0.455 (helps, not cures) |
+| Matched-drive pair (Δ4%) | — | ratioM < 1 (no cure) |
+
+**Verdict.** Both networks carry a common KC mode (an attractor-dominated
+shared ensemble); its depth decides everything. On MaleCNS the mode covers
+J≈0.53 of random pools — real odour codes escape it (0.25) and a separable
+carrier exists. On v783 it covers J≈0.90 and real codes do not escape: A-edge
+depression removes 96% of B's drive, so no specificity is possible.
+**The root on v783 is dynamics** (weak ORN→PN drive ×0.46/×0.15, weak KC
+module ×0.39, APL/drive 0.27 vs 0.45 → too little WTA sparsification), not
+wiring (structural J≈0), not the plasticity substrate, not pair selection.
+The same mechanism parsimoniously explains the community's negative results
+on FlyWire-style graphs.
 
 
 ---
