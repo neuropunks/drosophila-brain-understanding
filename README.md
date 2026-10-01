@@ -3218,7 +3218,7 @@ The former markers were lifted after reconciliation with the primary source; eac
 | Self-organization without a rule | ΔNMI=0 (8/8); the weights do not move the RSM without plasticity | L4 |
 | Absolute valence of taste | A coin flip of the attractor; an internal anchor is needed (hunger/NPF) | L2/L5 |
 | Specificity of state effects | Hunger/state — generic excitability, not address-specific modulation | L5 |
-| Cross-connectome transferability of learning | MaleCNS learns one-shot, v783 — does not (H1′ not accepted); F2 open | L4 |
+| Cross-connectome transferability of learning | MaleCNS learns one-shot, v783 does not — ✅ mechanism found (common KC mode 0.53 vs 0.90; `f2_results.md`) | L4 |
 | Free rotation of the bump | The ring = local wells, not a line attractor; drag leads it, free rotation does not | L3 |
 | Body and muscles | A data boundary: no FlyGym/flyvis front-end | L6 |
 
@@ -3227,7 +3227,7 @@ The former markers were lifted after reconciliation with the primary source; eac
 | # | Frontier | Essence | Path |
 |---|---|---|---|
 | **F1** | Structure → function | From the connectome one CANNOT predict the learnability of a pair (r=−0.136) — there is no predictive theory of topology→dynamics | Search for predictors on the accumulated corpus of runs |
-| **F2** | Cross-connectome transferability | Why MaleCNS learns, v783 — does not: there is no mechanistic answer | Comparative analysis (SFA types, KC sparseness, attractor landscape) |
+| **F2** | ~~Cross-connectome transferability~~ | ✅ **CLOSED 2026-10-01**: common KC mode 0.53 vs 0.90 (excitability null); root = weak drive+APL on v783 | `f2_results.md` |
 | **F3** | Data boundaries | The gap atlas is predictive, not validated; peptides without bodyId linking; no body | External data (completeness-plan.md) |
 
 This is not a backlog — it is the next level: the transition from phenomenology
