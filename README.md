@@ -1,5 +1,23 @@
 # Understanding the Drosophila brain: a systems report of the "Fly" project
 
+---
+
+## 🔗 Publication hub (all links of the series)
+
+| # | Work | Link |
+|---|---|---|
+| — | **This monograph** | GitHub: github.com/neuropunks/drosophila-brain-understanding · DOI: 10.5281/zenodo.23087111 |
+| 1 | Neurotransmitter audit of MaleCNS (data fixes) | doi.org/10.5281/zenodo.22975837 |
+| 3 | **Crown: Learning is robust, seeing it is hard** (learning + attractor) | doi.org/10.5281/zenodo.23067549 |
+| 2 | Working memory (cross-connectome bump + DNa02) | doi.org/10.5281/zenodo.23085648 |
+| 4 | Limits of learning (seven proven boundaries) | doi.org/10.5281/zenodo.23086723 |
+| 5 | Oscillators / CPG (walking, song, half-center) | doi.org/10.5281/zenodo.23086885 |
+| — | Code (audit + converter) | github.com/neuropunks/malecns-nt-audit · DOI: 10.5281/zenodo.23087119 |
+| — | Project channel | t.me/law_of_the_game |
+
+---
+
+
 **Monograph (overview). Version 0.1 — 29.09.2026.**
 **Project author and researcher: Andrey A. Smarygin, Independent researcher, Tyumen, Russia.**
 *Document prepared with the participation of the digital assistant Vivi (orchestration of ~100 research subagents, verification, synthesis).*
